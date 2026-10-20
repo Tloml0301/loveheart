@@ -118,7 +118,7 @@ class Heart {
 
     calc(frame) {
         // 【跳动速度 frame/20 * Math.PI】
-        let beatSin = Math.sin(frame / 20 * Math.PI);
+        let beatSin = Math.sin(frame / 22 * Math.PI);
         let ratio = 800 * beatSin;
         let haloRadius = 4 + 6*(1+beatSin);
         let haloCount = Math.floor(3000 + 4000 * Math.pow(Math.abs(Math.sin(frame/16*Math.PI)),2));
