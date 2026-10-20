@@ -112,9 +112,8 @@ class Heart {
         return [x - dx, y - dy];
     }
     calc(frame) {
-        // 改分母28，更慢一点，想要更慢改成32、36
         let beatSin = Math.sin(frame / 28 * Math.PI);
-        let ratio = 800 * beatSin;
+        let ratio = 600 * beatSin;
         let haloRadius = 4 + 6*(1+beatSin);
         let haloCount = Math.floor(3000 + 4000 * Math.pow(Math.abs(Math.sin(frame/16*Math.PI)),2));
         let heart_halo_point = new Set();
@@ -170,7 +169,6 @@ const textContent = "韦丹丹";
 const textColor = "#ffdddd";
 const baseFontSize = 22;
 // =========================================================
-// 总帧数同步改成56，匹配28周期
 const heart = new Heart(56);
 let frame = 0;
 // 动画循环
@@ -178,9 +176,8 @@ function animate(){
     ctx.fillStyle="#000000";
     ctx.fillRect(0,0,W,H);
     heart.render(ctx, frame);
-    // 文字同步 28，和爱心速度一致！
     let beatSin = Math.sin(frame / 28 * Math.PI);
-    const scaleText = 1 + beatSin * 0.12;
+    const scaleText = 1 + beatSin * 0.09;
     ctx.save();
     ctx.translate(cx, cy);
     ctx.scale(scaleText, scaleText);
